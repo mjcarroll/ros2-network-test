@@ -1,0 +1,11 @@
+# sed -i 's|/home/ralino/fzi/ros2_ws|<your ros2_ws>|g' network_test.service
+# sed -i 's|/home/ralino/fzi/network_test/network_test_ws|<your network_test_ws>|g' network_test.service
+
+[Service]
+Environment='LD_LIBRARY_PATH=/home/ralino/fzi/network_test/network_test_ws/install/lib:/home/ralino/fzi/ros2_ws/install/lib/unknown-linux-gnu:/home/ralino/fzi/ros2_ws/install/lib' 'PYTHONPATH=/home/ralino/fzi/network_test/network_test_ws/install/lib/python3.5/site-packages:/home/ralino/fzi/ros2_ws/install/lib/python3.5/site-packages'
+ExecStart="/home/ralino/fzi/network_test/network_test_ws/install/bin/network_test" "1234"
+KillSignal=SIGINT
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
