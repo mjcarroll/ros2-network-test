@@ -28,10 +28,9 @@ This creates 20 containers numbered from 10 to 29, called rostestN.
 
 `# bash setup-container.sh run` actually runs the test. This will start each container in its own screen session, with the same name as the container.
 To see the issue, attach to a screen session, login, source local_setup.bash and list the nodes using the provided `list_nodes | sort` node. Some nodes will be missing.
-To check the output of the sample node, run: `# journalctl -r _SYSTEMD_UNIT=network_test.service`. You probably want to compare the output
+To check the output of the sample node, run: `# journalctl -rb _SYSTEMD_UNIT=network_test.service`. You probably want to compare the output
 of different containers.
 
 Since the problem does not always occur, you might need to stop `# bash setup-container.sh stop` and restart again a few times.
 
-
-
+If some containers hang on shutdown, you can force-stop them with `# bash setup-container.sh clean`. You need to setup them again with `# bash setup-container.sh setup` afterwards.
