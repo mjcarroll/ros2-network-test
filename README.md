@@ -18,8 +18,8 @@ First, you need to set up a template nspawn-container at `/var/lib/machines/netw
 - Create subvolume: `# btrfs subvolume create /var/lib/machines/networktest-template`
 - [Setup an environment](https://wiki.archlinux.org/index.php/Systemd-nspawn#Create_a_Debian_or_Ubuntu_environment) (I used Ubuntu xenial) and install ros2 dependencies
 - Start container with bound ros2_ws and network_test_ws: `# systemd-nspawn --bind=<your ros2_ws> --bind=<your network_test_ws> -bM networktest-template`
-- Build ros2 and network_test if not done already, so they are 
-- Install `network_test.service` at `/etc/systemd/system/` in container, and adjust paths in it
+- Build ros2 and network_test if not done already, so their build files are in the bound workspaces
+- Install [network_test.service](network_test.service) at `/etc/systemd/system/` in container, and adjust paths in it
 - Enable `network_test.service` and `systemd-networkd.service` in container: `# systemctl enable network_test systemd-networkd`
 - Stop the template container
 
