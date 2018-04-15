@@ -24,7 +24,7 @@ First, you need to set up a template nspawn-container at `/var/lib/machines/netw
 - Stop the template container
 
 Now you can create the containers which are used for testing: `# bash setup-container.sh setup`
-This creates 20 containers numbered from 10 to 29, called rostestN.
+This creates five containers numbered from 1 to 5, called rostestN.
 
 `# bash setup-container.sh run` actually runs the test. This will start each container in its own screen session, with the same name as the container.
 To see the issue, attach to a screen session, login, source local_setup.bash and list the nodes using the provided `list_nodes | sort` node. Some nodes will be missing.

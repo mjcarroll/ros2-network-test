@@ -15,7 +15,7 @@ case "$1" in
   "setup")
     template="/var/lib/machines/networktest-template"
     systemctl start systemd-networkd.service # Required for nspawns network-zone
-    for n in {10..29}; do
+    for n in {1..5}; do
       root="/var/lib/machines/rostest$n"
       btrfs subvolume snapshot $template $root
       echo "rostest$n" > $root/etc/hostname
@@ -23,27 +23,27 @@ case "$1" in
     done
     ;;
   "run")
-    for n in {10..29}; do
+    for n in {1..5}; do
       screen -d -m -S rostest$n systemd-nspawn --network-zone=roszone --bind-ro="$ros2_ws" --bind-ro="$network_test_ws" -b -D /var/lib/machines/rostest$n
       echo "Started rostest$n"
       sleep 1
     done
     ;;
   "stop")
-    for n in {10..29}; do
+    for n in {1..5}; do
       machinectl stop rostest$n
       echo "Stopped rostest$n"
       sleep 1
     done
     ;;
   "clean")
-    for n in {10..29}; do
+    for n in {1..5}; do
       machinectl terminate rostest$n
       screen -D rostest$n
       sleep 1
     done
     sleep 1
-    for n in {10..29}; do
+    for n in {1..5}; do
       root="/var/lib/machines/rostest$n"
       btrfs subvolume delete $root
     done
