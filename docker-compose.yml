@@ -1,0 +1,33 @@
+version: "3"
+services:
+  node1:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=1
+  node2:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=2
+  node3:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=3
+  node4:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=4
+  node5:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=5
+  node_list:
+    image: network_test:latest
+    environment:
+      - CMD=list
+
+
