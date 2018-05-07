@@ -25,6 +25,31 @@ services:
     environment:
       - CMD=node
       - NODE=5
+  node6:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=6
+  node7:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=7
+  node8:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=8
+  node9:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=9
+  node10:
+    image: network_test:latest
+    environment:
+      - CMD=node
+      - NODE=10
   node_list:
     image: network_test:latest
     environment:
